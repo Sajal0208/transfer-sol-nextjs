@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AppBar } from "@/components/AppBar";
+import WalletContextProvider from "@/components/WalletContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={'min-h-screen'}>
+        <WalletContextProvider>
+          <AppBar />
+          {children}
+        </WalletContextProvider>
+      </body>
     </html>
   );
 }
