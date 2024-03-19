@@ -3,10 +3,11 @@ import { FC } from 'react';
 import { Movie } from '../models/Movie';
 
 export interface CardProps {
-    movie: Movie;
+    movie: Movie | null;
 }
 
 export const Card: FC<CardProps> = (props) => {
+    if (props.movie === null) return (<></>)
     return (
         <Box
             p={4}
